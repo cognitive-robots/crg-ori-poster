@@ -37,6 +37,8 @@
 %\boldmath % Use bold for everything within the math environment
 \usepackage{booktabs} % Top and bottom rules for tables
 \usepackage{microtype}
+\usepackage{array}
+\usepackage{multirow}
 
 \usecaptiontemplate{\small\structure{\insertcaptionname~\insertcaptionnumber: }\insertcaption} % A fix for figure numbering
 
@@ -47,6 +49,7 @@
 \let\oldbibliography\thebibliography
 \renewcommand{\thebibliography}[1]{\oldbibliography{#1}
 \setlength{\itemsep}{-10pt}}
+%\renewcommand{\labelitemi}{\tiny$\bullet$}
 
 %----------------------------------------------------------------------------------------
 %   TITLE SECTION 
@@ -54,10 +57,10 @@
 \title{ 
 \Huge The Likely Very Long Title Associated with Your Paper
 } % Poster title
-\author{\Large \textbf{Conference Title}\\[1cm]
+\author{\Large \textbf{The Somewhat Shorter Conference Title}\\[1cm]
 \textit{Author 1, Author 2, Author 3}}
 \institute{Oxford Robotics Institute, Dept. of Eng. Sci., University of Oxford\\\vspace{4mm}
-\texttt{\{author1,author2,author3\}@robots.ox.ac.uk}}
+\texttt{auth1@email.com, auth@email.com, auth3@email.com}}
 
 %----------------------------------------------------------------------------------------
 %   FOOTER TEXT
@@ -81,49 +84,112 @@
 %% Column 1
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  \begin{column}{.47\textwidth} % 1st column
+  \begin{column}{.49\textwidth} % 1st column
 
     \vspace{\shrink}          
-    \begin{block}{Overview}
+    
+    \vspace{-1cm}
+    
+    \begin{block}{Introduction}
       \begin{itemize}
-          \item Overview 1
-          \item Overview 2
-          \item Overview 3
-          \item Overview 4
+          \item \textbf{Overview:} Give a brief explanation of what your work is comprised of. Like an abstract, but shorter.
+          \item \textbf{Motivations:}
+          \begin{itemize}
+              \item Discuss the motivations behind carrying out the work.
+              \item Could mention potential applications or challenges faced by state of the art.
+              \item If the problem being tackled is fairly self-evident, you might be able to roll the problem definition into this section.
+          \end{itemize}
+          %\item \textbf{Contributions:}
+          %\begin{itemize}
+          %  \item A benchmark evaluation of contemporary temporal causal discovery techniques applied to real world scenes which follow a predetermined Autonomous Driving (AD) scenario.
+          %  \item A comparison of real world scene performance with performance on scenes synthetically generated with ideal conditions.
+          %  \item A discussion of the difficulties associated with causal discovery on agent behavioural interactions on a scene-by-scene basis, and the limitations presented by some methods as a result.
+          %\end{itemize}
       \end{itemize}
     \end{block}
 
-    \begin{block}{Another block}
-      Block text \cite{nahata2021assessing}...
+    \vspace{-1.05cm}
+    
+    \begin{block}{Problem Definition}
+      %\def\arraystretch{0}
+      %\vspace{0.5cm}
+      \begin{itemize}
+          \item Explain the details of the problem you are tackling, and why it is relevant and appropriate given the previously discussed challenges \slash\ applications.
+          \item An image can be handy here to help illustrate the problem.
+      \end{itemize}
+      %\vspace{-1.2cm}
+    \end{block}
+
+    \vspace{-1.05cm}
+
+    \begin{block}{Novel Contributions \slash\ Methodology}
+      \begin{itemize}
+          \item Provide a summary of the novel contributions developed for the work.
+          \item Can be a larger section given that this is one of the most important sections besides the results.
+          \item If the work is not comprised of novel contributions this can also just be a section focusing upon core components relating to the work.
+      \end{itemize}
     \end{block}
     
-    \begin{block}{Method}
-      \textbf{Method details.} We formulate... $\mathcal S = \{s_1, s_2, s_3, s_4, s_5, s_6 \}$
+    \vspace{-1.05cm}
 
-      Image example:
-      \begin{center}
-        \includegraphics[width=0.65\columnwidth]{oxford_logo.jpg}
-      \end{center}
+    \begin{block}{Data \& Experimental Methodology}
+      \begin{itemize}
+          \item What is the input data being used to train \slash\ evaluate in the work? And how is it being processed?
+          \item If not obvious from previous sections what does any potential output data look like and how is this utilised for the purposes of evaluation in the work?
+      \end{itemize}
     \end{block}
+    
   \end{column} % End of the 1st column
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% Column 2
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-  \begin{column}{.01\textwidth}\end{column} % Empty spacer column
+  \begin{column}{.015\textwidth}\end{column} % Empty spacer column
 
-  \begin{column}{.47\textwidth} % 3rd column
+
+  \begin{column}{.49\textwidth} % 3rd column
     \vspace{\shrink} 
+    
+    \vspace{-1cm}
+
     \begin{block}{Results}
-      Results...
+      \begin{center}
+      \includegraphics[width=0.925\linewidth]{example_graph.png}
+      \end{center}
+      \begin{itemize}
+          \item Give a brief overview of the results.
+          \item Ideally the figure \slash\ table should be simple enough for the viewer to interpret directly, so the text should mainly highlight or contextualise certain results.
+      \end{itemize}
+    \end{block}
+    
+    \vspace{-1.05cm}
+
+    \begin{block}{Discussion \& Future Work}
+    \begin{itemize}
+        \item \textbf{Discussion:} Discuss the results in the context of your work and potentially draw conclusions.
+        \item \textbf{Future Work:} Specify potential directions you consider as avenues for future work.
+    \end{itemize}
     \end{block}
 
-    \begin{block}{References}
-      \nocite{*} % Insert publications even if they are not cited in the poster
-      \linespread{0.928}\selectfont
-      \footnotesize{\bibliographystyle{plain}
+    \vspace{-1.05cm}
+
+    \begin{block}{Acknowledgements \& References}
+    \begin{itemize}
+    \item 
+    \small
+      Put any acknowledgements \slash\ thanks here.\\[5mm]
+    
+      %\nocite{*} % Insert publications even if they are not cited in the poster
+      \normalsize
+      \item
+      \small 
+      \linespread{0.895}
+      \textbf{References:}\selectfont
+      \scriptsize{\bibliographystyle{plain}
       \bibliography{oxford_poster}}
+    \end{itemize}
+    %\vspace{-0.4cm}
     \end{block}
 
   \end{column} % End of the 3rd column
